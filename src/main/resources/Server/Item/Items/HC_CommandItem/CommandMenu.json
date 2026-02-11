@@ -1,0 +1,22 @@
+{
+  "TranslationProperties": {
+    "Name": "server.items.hc_commanditem.commandmenu.name",
+    "Description": "server.items.hc_commanditem.commandmenu.description"
+  },
+  "Categories": [
+    "Items.Tools"
+  ],
+  "Quality": "Rare",
+  "Icon": "Icons/ItemsGenerated/Item_CommandMenu.png",
+  "PlayerAnimationsId": "Item",
+  "Interactions": {
+    "Primary": "Root_ExampleCommand",
+    "Secondary": "Root_ExampleCommand"
+  },
+  "Tags": {
+    "Type": [
+      "Tool"
+    ]
+  },
+  "MaxStack": 1
+}
