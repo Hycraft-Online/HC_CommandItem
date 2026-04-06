@@ -39,7 +39,7 @@ public class HC_CommandItemPlugin extends JavaPlugin {
     // Slot 9 = index 8 (0-indexed)
     public static final byte SLOT_9_INDEX = 8;
 
-    private static HC_CommandItemPlugin instance;
+    private static volatile HC_CommandItemPlugin instance;
 
     public HC_CommandItemPlugin(@NonNullDecl JavaPluginInit init) {
         super(init);
@@ -110,7 +110,7 @@ public class HC_CommandItemPlugin extends JavaPlugin {
                             }
 
                             giveAndLockMenuItem(player, ref);
-                            this.getLogger().at(Level.INFO).log(
+                            this.getLogger().at(Level.FINE).log(
                                 "[HC_CommandItem] Gave menu item to " + playerRef.getUsername()
                             );
                         } catch (Exception e) {
@@ -162,7 +162,7 @@ public class HC_CommandItemPlugin extends JavaPlugin {
             if (remainder != null && !remainder.isEmpty()) {
                 // Drop the remainder on the ground
                 ItemUtils.dropItem(entityRef, remainder, entityRef.getStore());
-                this.getLogger().at(Level.INFO).log(
+                this.getLogger().at(Level.FINE).log(
                     "[HC_CommandItem] Dropped overflow item: " + remainder.getItemId()
                 );
             }
@@ -214,6 +214,7 @@ public class HC_CommandItemPlugin extends JavaPlugin {
     @Override
     protected void shutdown() {
         super.shutdown();
+        instance = null;
         this.getLogger().at(Level.INFO).log("[HC_CommandItem] Plugin disabled");
     }
 }

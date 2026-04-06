@@ -47,7 +47,7 @@ public class ExecuteCommandInteraction extends SimpleInstantInteraction {
 
     @Override
     protected void firstRun(@Nonnull InteractionType interactionType, @Nonnull InteractionContext context, @Nonnull CooldownHandler cooldownHandler) {
-        LOGGER.at(Level.INFO).log("[HC_CommandItem] ExecuteCommandInteraction.firstRun called with command: " + command);
+        LOGGER.at(Level.FINE).log("[HC_CommandItem] ExecuteCommandInteraction.firstRun called with command: " + command);
 
         Ref entityRef = context.getEntity();
         if (entityRef == null || !entityRef.isValid()) {
@@ -72,7 +72,7 @@ public class ExecuteCommandInteraction extends SimpleInstantInteraction {
             return;
         }
 
-        LOGGER.at(Level.INFO).log("[HC_CommandItem] Executing command '" + command + "' for player: " + player.getDisplayName());
+        LOGGER.at(Level.FINE).log("[HC_CommandItem] Executing command '" + command + "' for player: " + player.getDisplayName());
 
         // Execute the command as the player
         CommandManager.get().handleCommand(player, command);
